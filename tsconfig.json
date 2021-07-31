@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": ["es6", "dom"],
+    "outDir": "./build/",
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "preserve",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "include": ["client/**/*"],
+  "exclude": ["node_modules"]
+}
