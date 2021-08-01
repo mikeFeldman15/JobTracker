@@ -15,6 +15,15 @@ import { Link } from 'react-router-dom';
 
 
 
+/**
+ * ====================================
+ *        Property Types
+ * ====================================
+ */
+
+ interface Props {
+  question: Object;
+}
 
 /**
  * ====================================
@@ -22,30 +31,16 @@ import { Link } from 'react-router-dom';
  * ====================================
  */
 
-const Home = () => {
+const QuestionsBox = ({question}) => {
+  console.log('from question box');
+  console.log(question)
   return (
-    <div id='home-container'>
-      <h2>Hello from the home component</h2>
-      <div className='homepage-routes'>
-        <Link to="/login">
-          <button>
-            Login
-          </button>
-        </Link>
-        <Link to="/signup">
-          <button>
-            Signup
-          </button>
-        </Link>
-        <Link to="/about">
-          <button>
-            Learn More
-          </button>
-        </Link>
-        
-      </div>
+    <div className="questionBox-container">
+      <h3>Hello from question box</h3>
+      <h4>{question.Question}</h4>
     </div>
   )
+
 }
 
-export default Home;
+export default QuestionsBox;

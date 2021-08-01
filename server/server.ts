@@ -35,6 +35,9 @@ const serveMainFile = (req, res) => {
 
 //** Routes requiring main file for React Router Routes**//
 app.get('/', serveMainFile);
+app.get('/login', serveMainFile);
+app.get('/signup', serveMainFile);
+app.get('/about', serveMainFile);
 
 //** No route / 404 Handler **//
 app.use('*', (req, res) => res.status(404).send('Error 404: This page doesn\'t exist!'));

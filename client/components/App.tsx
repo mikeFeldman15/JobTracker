@@ -40,7 +40,6 @@ const App = () => {
           <Route exact path='/about' render={() => <About />} /> 
         </Switch>
       </div>
-      <h2>Page is Rendering</h2>
     </div>
   )
 }
