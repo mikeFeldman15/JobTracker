@@ -22,7 +22,7 @@ import { Link } from 'react-router-dom';
  */
 
  interface Props {
-  question: Object;
+  data: object;
 }
 
 /**
@@ -31,13 +31,13 @@ import { Link } from 'react-router-dom';
  * ====================================
  */
 
-const QuestionsBox = ({question}) => {
+const QuestionsBox = ({data}) => {
   console.log('from question box');
-  console.log(question)
+  // console.log(prop)
   return (
     <div className="questionBox-container">
       <h3>Hello from question box</h3>
-      <h4>{question.Question}</h4>
+      <h4>{data.question}</h4>
     </div>
   )
 

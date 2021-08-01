@@ -25,7 +25,6 @@ import QuestionsBox from './QuestionsBox.tsx'
 interface Props {
   firstName: string;
   userId: string;
-  questions: object[];
 }
 
 //ugh wtf...
@@ -40,33 +39,46 @@ interface generateQuestionBoxesResponse {
  * ====================================
  */
 
-const UserHomePage = ({firstName, userId, questions}) => {
-  
-  const [questionComponent, setquestionComponent] = useState(null);
+const UserHomePage = ({firstName, userId}) => {
+  const [studyToggle, setStudyToggle] = useState(false);
+  const [jobTrackerToggle, setJobTrackerToggle] = useState(false);
+  const [networkingToggle, setNetworkingToggle] = useState(false);
+  const [questionComponent, setquestionComponent] = useState([]);
 
   /** On rendering the page with the userId from the previous component grab all the questions associated with this user **/
   
-  if (questionComponent === null) {
-    console.log('questions')
-    console.log(questions)
-    setquestionComponent(generateQuestionBoxes(questions))
-  }
-  
-
-
+  console.log('question component');
+  console.log(questionComponent)
   /** To get all questions associated */
   return (
-    <div className="userHomePage-container">
-      <div className="main-header">
-        <h2>Hello {firstName} from userHomePage</h2>
-      </div>
-      <div className="questions-container">
-        <div className="question-box-container">
-          <h4 className="question=header">Question Header</h4>
-          {questionComponent}
+    // <div className="userHomePage-container">
+     
+      
+      !studyToggle && !jobTrackerToggle && !networkingToggle ? (
+        <div>
+          <div className="main-header">
+            <h2>Hello {firstName} from userHomePage</h2>
+          </div>
+          <div className="button-container">
+            <button className="question-button" onClick={studyMode}>Study</button>
+            <button className="jobTracker-button" onClick={jobTracker}>Job Tracker</button>
+            <button className="jobTracker-button" onClick={networking}>Your Network</button>            
+          </div>
         </div>
-      </div>
-    </div>
+      ) : studyToggle ? (
+        questionComponent
+      ) : jobTrackerToggle ? (
+        <h3>Job tracker toggle</h3>
+      ) : networkingToggle ? (
+        <h3>Networking Toggle</h3>
+      ) : (
+        <div className="button-container">
+          <button className="question-button" onClick={studyMode}>Study</button>
+          <button className="jobTracker-button" onClick={jobTracker}>Job Tracker</button>
+          <button className="jobTracker-button" onClick={networking}>Your Network</button>            
+        </div>
+      )     
+    //  
   )
 
   /**
@@ -75,12 +87,36 @@ const UserHomePage = ({firstName, userId, questions}) => {
  * ====================================
  */
 
-  function generateQuestionBoxes(questions: object[]) {
+  function studyMode() {
     const questionsArray: any[] = [];
-    for (let i = 0; i < questions.length; i++) {
-      questionsArray.push(<QuestionsBox question={questions[i]}/>)
+    // initialize a get request w/ userId to get all this users questions
+    const tempSampleQuestionData = [
+    {
+      question: 'What is node?',
+      answer: 'fuck if I care'
+    },
+    {
+      question: 'Why use React?',
+      answer: 'Only framework I know'
     }
-    return questionsArray;
+  ]
+    for (let i = 0; i < tempSampleQuestionData.length; i++) {
+      questionsArray.push(<QuestionsBox data={tempSampleQuestionData[i]}/>)
+    }
+    // data={tempSampleQuestionData[i]}
+    console.log('setting question prop')
+    setquestionComponent(questionsArray)
+    setStudyToggle(true)
+    return;
+  }
+
+  function jobTracker() {
+    //get request to get all of this person's job info
+    const tempContacts = [];
+  }
+
+  function networking() {
+    //get request to get all of this persons people info
   }
 
 
