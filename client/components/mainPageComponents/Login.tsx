@@ -23,9 +23,8 @@ const Login = () => {
   const [isLoggedIn, setLoggedIn] = useState(false)
   const [firstName, setFirstName] = useState('');
   const [userId, setUserId] = useState(null);
-  const [questions, setQuestions] = useState([]);
 
-  const userHomePage = <UserHomePage firstName={firstName} userId={userId} questions={questions}/>
+  const userHomePage = <UserHomePage firstName={firstName} userId={userId}/>
     return (
       isLoggedIn ? (
         <div className="temp-container">
@@ -77,10 +76,6 @@ const Login = () => {
         //Send post request with user information!
         //after successful post request
         setUserId('temp');
-        setQuestions([{
-          'Question': 'What is Node?',
-          'Answer': 'I dont know what do I look like a dictionary'
-        }])
         setLoggedIn(true)
       }
 }
