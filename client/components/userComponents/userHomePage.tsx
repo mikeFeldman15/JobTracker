@@ -52,32 +52,50 @@ const UserHomePage = ({firstName, userId}) => {
   /** To get all questions associated */
   return (
     // <div className="userHomePage-container">
-     
+     <div>
+        <Link to="/study">
+          <button>
+            Study Mode
+          </button>
+        </Link>
+        <Link to="/jobTracker">
+          <button>
+            Job Tracking
+          </button>
+        </Link>
+        <Link to="/network">
+          <button>
+            Network
+          </button>
+        </Link>
+     </div>
+
+
       
-      !studyToggle && !jobTrackerToggle && !networkingToggle ? (
-        <div>
-          <div className="main-header">
-            <h2>Hello {firstName} from userHomePage</h2>
-          </div>
-          <div className="button-container">
-            <button className="question-button" onClick={studyMode}>Study</button>
-            <button className="jobTracker-button" onClick={jobTracker}>Job Tracker</button>
-            <button className="jobTracker-button" onClick={networking}>Your Network</button>            
-          </div>
-        </div>
-      ) : studyToggle ? (
-        questionComponent
-      ) : jobTrackerToggle ? (
-        <h3>Job tracker toggle</h3>
-      ) : networkingToggle ? (
-        <h3>Networking Toggle</h3>
-      ) : (
-        <div className="button-container">
-          <button className="question-button" onClick={studyMode}>Study</button>
-          <button className="jobTracker-button" onClick={jobTracker}>Job Tracker</button>
-          <button className="jobTracker-button" onClick={networking}>Your Network</button>            
-        </div>
-      )     
+      // !studyToggle && !jobTrackerToggle && !networkingToggle ? (
+      //   <div>
+      //     <div className="main-header">
+      //       <h2>Hello {firstName} from userHomePage</h2>
+      //     </div>
+      //     <div className="button-container">
+      //       <button className="question-button" onClick={studyMode}>Study</button>
+      //       <button className="jobTracker-button" onClick={jobTracker}>Job Tracker</button>
+      //       <button className="jobTracker-button" onClick={networking}>Your Network</button>            
+      //     </div>
+      //   </div>
+      // ) : studyToggle ? (
+      //   questionComponent
+      // ) : jobTrackerToggle ? (
+      //   <h3>Job tracker toggle</h3>
+      // ) : networkingToggle ? (
+      //   <h3>Networking Toggle</h3>
+      // ) : (
+      //   <div className="button-container">
+      //     <button className="question-button" onClick={studyMode}>Study</button>
+      //     <button className="jobTracker-button" onClick={jobTracker}>Job Tracker</button>
+      //     <button className="jobTracker-button" onClick={networking}>Your Network</button>            
+      //   </div>
+      // )     
     //  
   )
 
@@ -87,28 +105,7 @@ const UserHomePage = ({firstName, userId}) => {
  * ====================================
  */
 
-  function studyMode() {
-    const questionsArray: any[] = [];
-    // initialize a get request w/ userId to get all this users questions
-    const tempSampleQuestionData = [
-    {
-      question: 'What is node?',
-      answer: 'fuck if I care'
-    },
-    {
-      question: 'Why use React?',
-      answer: 'Only framework I know'
-    }
-  ]
-    for (let i = 0; i < tempSampleQuestionData.length; i++) {
-      questionsArray.push(<QuestionsBox data={tempSampleQuestionData[i]}/>)
-    }
-    // data={tempSampleQuestionData[i]}
-    console.log('setting question prop')
-    setquestionComponent(questionsArray)
-    setStudyToggle(true)
-    return;
-  }
+  
 
   function jobTracker() {
     //get request to get all of this person's job info
