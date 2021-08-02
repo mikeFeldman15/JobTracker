@@ -4,7 +4,7 @@
  * ====================================
  */
 import React, { useEffect, useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 /**
  * ====================================
  *        File Imports
@@ -27,24 +27,24 @@ const Login = () => {
   const userHomePage = <UserHomePage firstName={firstName} userId={userId}/>
     return (
       isLoggedIn ? (
-        <div className="temp-container">
+        <div>
           {userHomePage}
         </div>
       ) : (
-        <div id='login-container'>
-          <h3>Login to | Insert Name of App |</h3>
-            <form id='login-form'>
-              <input id='login-firstName' placeholder='First Name' type='text' />
-              <br />
-              <input id='login-lastName' placeholder='Last Name' type='text' />
-              <br />
-              <input id='login-password' placeholder='Password' type='password'/>
-              <br />
-              <input id='login-email' placeholder='Email' type='text' />
-              <br />
-              <button id='login-submit' onClick={userLogin}>Log in</button>
-            </form>
-        </div>
+          <div id='login-container'>
+            <h3>Login to | Insert Name of App |</h3>
+              <form id='login-form'>
+                <input id='login-firstName' placeholder='First Name' type='text' />
+                <br />
+                <input id='login-lastName' placeholder='Last Name' type='text' />
+                <br />
+                <input id='login-password' placeholder='Password' type='password'/>
+                <br />
+                <input id='login-email' placeholder='Email' type='text' />
+                <br />
+                <button id='login-submit' onClick={userLogin}>Log in</button>
+              </form>
+          </div>
       )
     )
 
@@ -74,7 +74,7 @@ const Login = () => {
         setFirstName(firstName.value);
         
         //Send post request with user information!
-        //after successful post request
+        //after successful post request return the userId
         setUserId('temp');
         setLoggedIn(true)
       }
