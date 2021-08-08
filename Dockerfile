@@ -9,7 +9,7 @@ RUN npm -v
 RUN npm install webpack -g
 
 # Set up a WORKDIR for application in the container
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # We dont want to reinstall our package.json & package-lock.json every time... so we copy it over from our existing docker image cache
 COPY package*.json ./
