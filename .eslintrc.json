@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest/globals": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:cypress/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": ["import", "jest", "react"],
+  "rules": {},
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "jest": {
+        "jestConfigFile": "./jest.config.js"
+      }
+    }
+  }
+}

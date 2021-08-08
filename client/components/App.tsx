@@ -14,7 +14,7 @@ import { Route, Switch } from 'react-router-dom';
  */
 
 // @ts-ignore
- import Home from './mainPageComponents/Home.tsx';
+import Home from './mainPageComponents/Home.tsx';
 // @ts-ignore
 import Login from './mainPageComponents/Login.tsx';
 // @ts-ignore
@@ -36,22 +36,21 @@ import Network from './userComponents/Network.tsx';
  */
 const App = () => {
   return (
-    <div id='mainPage'>
-      <div id='navBar'>
-      </div>
+    <div id="mainPage">
+      <div id="navBar"></div>
       <div>
         <Switch>
-          <Route exact path='/' render={() => <Home />} /> 
-          <Route exact path='/login' render={() => <Login />} />
-          <Route exact path='/signup' render={() => <Signup />} />
-          <Route exact path='/about' render={() => <About />} /> 
-          <Route exact path='/study' render={() => <QuestionsBox />} /> 
-          <Route exact path='/jobTracker' render={() => <JobTracker />} /> 
-          <Route exact path='/network' render={() => <Network />} /> 
+          <Route exact path="/" render={() => <Home />} />
+          <Route exact path="/login" render={() => <Login />} />
+          <Route exact path="/signup" render={() => <Signup />} />
+          <Route exact path="/about" render={() => <About />} />
+          <Route exact path="/study" render={() => <QuestionsBox />} />
+          <Route exact path="/jobTracker" render={() => <JobTracker />} />
+          <Route exact path="/network" render={() => <Network />} />
         </Switch>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default App;

@@ -12,15 +12,13 @@ import { Route, Switch, Link } from 'react-router-dom';
  * ====================================
  */
 
-
-
 /**
  * ====================================
  *        Property Types
  * ====================================
  */
 
- interface Props {
+interface Props {
   data: object;
 }
 
@@ -35,7 +33,7 @@ const JobTracker = () => {
     <div>
       <h3>Hello from Job Tracker</h3>
     </div>
-  )
-}
+  );
+};
 
 export default JobTracker;

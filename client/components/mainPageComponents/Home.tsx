@@ -13,9 +13,6 @@ import { Link } from 'react-router-dom';
  * ====================================
  */
 
-
-
-
 /**
  * ====================================
  *        Main Component
@@ -24,28 +21,21 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div id='home-container'>
+    <div id="home-container">
       <h2>Hello from the home component</h2>
-      <div className='homepage-routes'>
+      <div className="homepage-routes">
         <Link to="/login">
-          <button>
-            Login
-          </button>
+          <button>Login</button>
         </Link>
         <Link to="/signup">
-          <button>
-            Signup
-          </button>
+          <button>Signup</button>
         </Link>
         <Link to="/about">
-          <button>
-            Learn More
-          </button>
+          <button>Learn More</button>
         </Link>
-        
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Home;

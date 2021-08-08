@@ -13,18 +13,15 @@ import { Link } from 'react-router-dom';
  * ====================================
  */
 
-
-
 /**
  * ====================================
  *        Property Types
  * ====================================
  */
 
- interface Props {
+interface Props {
   question: object;
 }
-
 
 /**
  * ====================================
@@ -32,32 +29,29 @@ import { Link } from 'react-router-dom';
  * ====================================
  */
 
-const IndividualQuestion = ({question}) => {
-  const [goToAnswer, setGoToAnswer] = useState(false)
-  return (
-    !goToAnswer ? (
-      <div>
-        <button onClick={changeQuestionState}>{question.question}</button>
+const IndividualQuestion = ({ question }) => {
+  const [goToAnswer, setGoToAnswer] = useState(false);
+  return !goToAnswer ? (
+    <div>
+      <button onClick={changeQuestionState}>{question.question}</button>
     </div>
-    ) : (
-      <div>
-        <button onClick={changeQuestionState}>{question.answer}</button>
-      </div>
-    )    
-  )
+  ) : (
+    <div>
+      <button onClick={changeQuestionState}>{question.answer}</button>
+    </div>
+  );
 
-/**
- * ====================================
- *        Helper Functions
- * ====================================
- */
+  /**
+   * ====================================
+   *        Helper Functions
+   * ====================================
+   */
 
   function changeQuestionState() {
     if (goToAnswer) setGoToAnswer(false);
     else setGoToAnswer(true);
     return;
   }
-
-}
+};
 
 export default IndividualQuestion;

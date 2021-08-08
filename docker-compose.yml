@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  lb:
+    image: haproxy
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy
+  jobtracker1:
+    image: mikefeldman15/jobtracker1.0
+    environment: 
+      - PORT=6666
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run dev:hot
+  jobtracker2:
+    image: mikefeldman15/jobtracker1.0
+    environment: 
+      - PORT=7777
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run dev:hot
+  jobtracker3:
+    image: mikefeldman15/jobtracker1.0
+    environment: 
+      - PORT=8888
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run dev:hot
