@@ -13,15 +13,13 @@ import { Link } from 'react-router-dom';
  * ====================================
  */
 // @ts-ignore
-import IndividualQuestion from './IndividualQuestion.tsx'
-
+import IndividualQuestion from './IndividualQuestion.tsx';
 
 /**
  * ====================================
  *        Property Types
  * ====================================
  */
-
 
 /**
  * ====================================
@@ -32,9 +30,9 @@ import IndividualQuestion from './IndividualQuestion.tsx'
 const QuestionsBox = () => {
   const [gatherQuestions, setGatherQuestions] = useState(false);
   const [usersQuestions, setUsersQuestions] = useState([]);
-  
-  if(!gatherQuestions) {
-    getUserQuestions()
+
+  if (!gatherQuestions) {
+    getUserQuestions();
   }
 
   return (
@@ -42,40 +40,38 @@ const QuestionsBox = () => {
       <h3>Hello from question box</h3>
       {usersQuestions}
     </div>
-  )
+  );
 
-/**
- * ====================================
- *        Helper Functions
- * ====================================
- */
+  /**
+   * ====================================
+   *        Helper Functions
+   * ====================================
+   */
 
-function getUserQuestions() {
-  //get request for user's questions
-  //need userId here!
-  const questionsArray: any[] = [];
-  // initialize a get request w/ userId to get all this users questions
-  const tempSampleQuestionData = [
-  {
-    question: 'What is node?',
-    answer: 'fuck if I care'
-  },
-  {
-    question: 'Why use React?',
-    answer: 'Only framework I know'
+  function getUserQuestions() {
+    //get request for user's questions
+    //need userId here!
+    const questionsArray: any[] = [];
+    // initialize a get request w/ userId to get all this users questions
+    const tempSampleQuestionData = [
+      {
+        question: 'What is node?',
+        answer: 'fuck if I care',
+      },
+      {
+        question: 'Why use React?',
+        answer: 'Only framework I know',
+      },
+    ];
+    for (let i = 0; i < tempSampleQuestionData.length; i++) {
+      questionsArray.push(<IndividualQuestion question={tempSampleQuestionData[i]} />);
+    }
+    // data={tempSampleQuestionData[i]}
+    console.log('setting question prop');
+    setUsersQuestions(questionsArray);
+    setGatherQuestions(true);
+    return;
   }
-]
-  for (let i = 0; i < tempSampleQuestionData.length; i++) {
-    questionsArray.push(< IndividualQuestion question={tempSampleQuestionData[i]}/>)
-  }
-  // data={tempSampleQuestionData[i]}
-  console.log('setting question prop')
-  setUsersQuestions(questionsArray);
-  setGatherQuestions(true);
-  return;
-}
-
-
-}
+};
 
 export default QuestionsBox;

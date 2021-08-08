@@ -6,7 +6,8 @@
   "scripts": {
     "start": "NODE_ENV=production ts-node server/server.ts",
     "build": "NODE_ENV=production webpack",
-    "dev:hot": "concurrently \"NODE_ENV=development webpack serve\" \"NODE_ENV=development nodemon --exec 'ts-node' server/server.ts\"",
+    
+    "dev:hot": "NODE_ENV=development nodemon --verbose ts-nosde ./server/server.ts & NODE_ENV=development webpack-dev-server --config ./webpack/dev.config.js",
     "lint:fix": "bash ./scripts/lint.sh --fix",
     "test": "jest --verbose"
   },
