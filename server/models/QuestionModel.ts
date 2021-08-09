@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 // Can put MongoDB URI here for ease of use during development
-const myURI = '';
+const myURI = 'mongodb+srv://bhepfing:B6hepfing@cluster0.h4kmx.mongodb.net/JobTracker?retryWrites=true&w=majority';
 
 const URI = process.env['MONGO_URI'] || myURI;
 
