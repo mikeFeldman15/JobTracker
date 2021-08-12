@@ -6,6 +6,19 @@ const myURI = 'postgres://epgjivkh:FEwFDmgKSyLQAGFbirU-yP1O-lONzcgw@chunee.db.el
 
 const PG_URI = process.env['PGURI'] || myURI;
 
+/*
+
+Table "user" columns:
+
+user_id SERIAL NOT NULL PRIMARY KEY
+username VARCHAR(100) UNIQUE NOT NULL
+password VARCHAR(100) NOT NULL
+created_on TIMESTAMP NOT NULL
+email VARCHAR(255) UNIQUE NOT NULL
+last_login TIMESTAMP
+
+*/
+
 const pool = new Pool({
   connectionString: PG_URI
 });
