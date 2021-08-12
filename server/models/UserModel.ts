@@ -8,7 +8,7 @@ const PG_URI = process.env['PGURI'] || myURI;
 
 /*
 
-Table "user" columns:
+Table "user" schema:
 
 user_id SERIAL NOT NULL PRIMARY KEY
 username VARCHAR(100) UNIQUE NOT NULL
