@@ -4,9 +4,9 @@
   "description": "",
   "main": "/client/index.tsx",
   "scripts": {
-    "start": "NODE_ENV=production ts-node server/server.ts",
-    "build": "NODE_ENV=production webpack",
-    "dev:hot": "concurrently \"NODE_ENV=development webpack serve\" \"NODE_ENV=development nodemon --exec 'ts-node' server/server.ts\"",
+    "start": "cross-env NODE_ENV=production ts-node server/server.ts",
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev:hot": "concurrently \"cross-env NODE_ENV=development webpack serve\" \"cross-env NODE_ENV=development nodemon --exec 'ts-node' server/server.ts\"",
     "docker-dev:hot": "docker-compose up",
     "lint:fix": "bash ./scripts/lint.sh --fix",
     "test": "jest --verbose"
